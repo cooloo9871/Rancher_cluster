@@ -1,4 +1,4 @@
-# RKE2 cluster template
+# Rancher cluster builder
 
 This project contains rke2 cluster template helm chart, which can be applied with values.yaml as configurations to create clusters.
 
@@ -158,7 +158,7 @@ rke:
     workerConcurrency: "1"
 ```
 
-
+### Create Cluster
 ```bash
 $ bash build.sh
 ==Please copy the following token:==
@@ -168,3 +168,7 @@ token-76b42:84qfwlwrbfqdnr5hbqpc6bffbf4bhnwr66qg72nct8qrf4twnpmr8q
 curl --insecure -fL https://bigred.cooloo9871.com/system-agent-install.sh | sudo  sh -s - --server https://bigred.cooloo9871.com --label 'cattle.io/os=linux' --token wsnf2krwgkfq89m8mf8444rljsgj8h8x8cl8btsrggvq5qprkgwgcm --ca-checksum 64dfdeb4ea7fab50c3794bfc3bcf6d8f2cea4c66062061a67ccff6221ac5a800 --etcd --controlplane --worker
 ```
 
+### Delete Cluster
+```
+$ helm -n fleet-default uninstall do-cluster
+```
