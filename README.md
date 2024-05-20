@@ -34,10 +34,10 @@ cluster:
   annotations: {}
 
 # specify cloud credential secret name, do not need to be provided if using custom driver
-cloudCredentialSecretName: example
+cloudCredentialSecretName: ""
 
 # specify cloud provider, options are amazonec2, digitalocean, azure, vsphere or custom
-cloudprovider: ""
+cloudprovider: "custom"
 
 # enable network policy
 enableNetworkPolicy: false
@@ -161,6 +161,6 @@ rke:
 To provide your own configuration, modify the original values.yaml and create your own version, and pass it to helm. For example:
 
 ```bash
-helm install --namespace fleet-default --values ./charts/your-own-values.yaml do-cluster ./charts
+bash build.sh
 ```
 
