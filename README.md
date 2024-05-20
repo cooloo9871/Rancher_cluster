@@ -4,6 +4,20 @@ This project contains rke2 cluster template helm chart, which can be applied wit
 
 ### How to use
 
+```
+git clone https://github.com/cooloo9871/Rancher_cluster-builder.git; cd Rancher_cluster-builder
+```
+#### You need to fill in the rancher url,rancher account password,rancher version
+```
+$ nano env.txt
+#You need to fill in the rancher url,rancher account password,rancher version
+
+URL="bigred.cooloo9871.com"
+USER="admin"
+PASSWORD="rancheradmin"
+RANCHER_VERSION="v2.8.2"
+```
+
 The general cluster configuration options are available through [values.yaml](./charts/values.yaml).
 
 ```yaml
