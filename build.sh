@@ -15,10 +15,10 @@ echo "Please copy the following token:"
 echo -e "${APITOKEN}\n"
 
 ## Create Custom Cluster
-helm install --namespace fleet-default --values ~/cluster-template-examples/charts/values.yaml do-cluster ./charts
+helm install --namespace fleet-default --values charts/values.yaml do-cluster ./charts
 
 ## Show Registration Command
-CLUSTERNAME=$(cat charts/values.yaml | sed 's/^[[:space:]]*//' | grep "^name:" | cut -d ' ' -f2)
+CLUSTERNAME=$(cat charts/values.yaml | sed 's/^[[:space:]]*//' | grep "^name:" | cut -d ' ' -f2 | tr -d '\r')
 
 CLUSTERID=$(kubectl get clusters.management.cattle.io -o yaml | grep -A20 "$CLUSTERNAME" | sed 's/^[[:space:]]*//' | grep "^name:" | cut -d ' ' -f2)
 
