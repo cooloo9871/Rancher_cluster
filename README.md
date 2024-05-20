@@ -18,7 +18,7 @@ PASSWORD="rancheradmin"
 RANCHER_VERSION="v2.8.2"
 ```
 
-The general cluster configuration options are available through [values.yaml](./charts/values.yaml).
+#### The general cluster configuration options are available through [values.yaml](./charts/values.yaml).
 
 ```yaml
 $ nano charts/values.yaml
@@ -158,7 +158,7 @@ rke:
     workerConcurrency: "1"
 ```
 
-### Create Cluster
+#### Create Cluster
 ```bash
 $ bash build.sh
 ==Please copy the following token:==
@@ -168,7 +168,7 @@ token-76b42:84qfwlwrbfqdnr5hbqpc6bffbf4bhnwr66qg72nct8qrf4twnpmr8q
 curl --insecure -fL https://bigred.cooloo9871.com/system-agent-install.sh | sudo  sh -s - --server https://bigred.cooloo9871.com --label 'cattle.io/os=linux' --token wsnf2krwgkfq89m8mf8444rljsgj8h8x8cl8btsrggvq5qprkgwgcm --ca-checksum 64dfdeb4ea7fab50c3794bfc3bcf6d8f2cea4c66062061a67ccff6221ac5a800 --etcd --controlplane --worker
 ```
 
-### Delete Cluster
+#### Delete Cluster
 ```
 $ helm -n fleet-default uninstall do-cluster
 ```
