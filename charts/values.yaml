@@ -1,7 +1,7 @@
 # cluster specific values
 cluster:
   # specify cluster name
-  name: template-rke2
+  name: cluster-example
 
   # specify cluster labels
   labels: {}
@@ -13,12 +13,14 @@ cluster:
 cloudCredentialSecretName: ""
 
 # specify cloud provider, options are amazonec2, digitalocean, azure, vsphere or custom
-cloudprovider: "digitalocean"
+cloudprovider: "custom"
 
-kubernetesVersion: ""
+kubernetesVersion: "v1.28.8+rke2r1"
 
 # general RKE options
 rke:
+  controlPlaneConfig:
+    cni: calico
   # enable local auth endpoint
   localClusterAuthEndpoint:
     enabled: false
