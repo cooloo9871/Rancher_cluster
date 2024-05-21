@@ -24,7 +24,7 @@ APIRESPONSE=`curl -s "https://${URL}/v3/token" -H 'content-type: application/jso
 
 APITOKEN=`echo $APIRESPONSE | jq -r .token`
 
-printf "${GRN}==Please copy the following token:==${NC}\n"
+printf "${GRN}==Please copy the following token==${NC}\n"
 echo -e "${APITOKEN}\n"
 
 ## Create Custom Cluster
@@ -37,6 +37,6 @@ CLUSTERID=$(kubectl get clusters.management.cattle.io -o yaml | grep -A20 "$CLUS
 
 VAR="\"clusterId\": \"${CLUSTERID}\""
 
-printf "${GRN}==Please copy the Registration Allinone Command:==${NC}\n"
+printf "${GRN}==Please copy the Registration Allinone Command==${NC}\n"
 CODE=$(curl -s -k -H "Authorization: Bearer ${APITOKEN}" https://"$URL"/v3/clusterregistrationtokens | jq | grep -A7 "$VAR" | grep insecureNodeCommand | cut -d '"' -f4 | sed 's/^[[:space:]]*//')
 echo "$CODE --etcd --controlplane --worker"
