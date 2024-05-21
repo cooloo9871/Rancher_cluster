@@ -9,11 +9,11 @@ NC='\033[0m' # No Color
 source env.txt
 
 if [[ ! command kubectl &>/dev/null ]]; then
-  printf "${RED}==Please install kubectl==${NC}\n"
+  printf "${RED}==Please install kubectl==${NC}\n" && exit 0
 elif [[ ! command jq &>/dev/null ]]; then
-  printf "${RED}==Please install jq==${NC}\n"
+  printf "${RED}==Please install jq==${NC}\n" && exit 0
 elif [[ ! command helm &>/dev/null ]]; then
-  printf "${RED}==Please install helm==${NC}\n"
+  printf "${RED}==Please install helm==${NC}\n" && exit 0
 fi
 
 LOGINRESPONSE=`curl -s "https://${URL}/v3-public/localProviders/local?action=login" -H 'content-type: application/json' --data-binary '{"username":"'${USER}'","password":"'${PASSWORD}'"}' --insecure`
