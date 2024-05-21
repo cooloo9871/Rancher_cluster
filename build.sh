@@ -31,6 +31,8 @@ echo -e "${APITOKEN}\n"
 helm install --namespace fleet-default --values charts/values.yaml do-cluster ./charts &>/dev/null
 
 ## Show Registration Command
+sleep 10
+
 CLUSTERNAME=$(cat charts/values.yaml | sed 's/^[[:space:]]*//' | grep "^name:" | cut -d ' ' -f2 | tr -d '\r')
 
 CLUSTERID=$(kubectl get clusters.management.cattle.io -o yaml | grep -A20 "$CLUSTERNAME" | sed 's/^[[:space:]]*//' | grep "^name:" | cut -d ' ' -f2)
