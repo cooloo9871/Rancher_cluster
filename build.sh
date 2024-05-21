@@ -8,11 +8,14 @@ NC='\033[0m' # No Color
 
 source env.txt
 
-if [[ ! command kubectl &>/dev/null ]]; then
+which kubectl &>/dev/null
+if [[ "$?" != 0 ]]; then
   printf "${RED}==Please install kubectl==${NC}\n" && exit 0
-elif [[ ! command jq &>/dev/null ]]; then
+  which jq &>/dev/null
+elif [[ "$?" != 0 ]]; then
   printf "${RED}==Please install jq==${NC}\n" && exit 0
-elif [[ ! command helm &>/dev/null ]]; then
+  which helm &>/dev/null
+elif [[ "$?" != 0 ]]; then
   printf "${RED}==Please install helm==${NC}\n" && exit 0
 fi
 
