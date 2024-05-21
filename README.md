@@ -11,10 +11,10 @@ git clone https://github.com/cooloo9871/Rancher_cluster-builder.git; cd Rancher_
 $ nano env.txt
 #You need to fill in the rancher url,rancher account password,rancher version
 
-URL="rancher.example.com"
-USER="admin"
-PASSWORD="rancheradmin"
-RANCHER_VERSION="v2.8.2"
+export URL="rancher.example.com"
+export USER="admin"
+export PASSWORD="rancheradmin"
+export RANCHER_VERSION="v2.8.2"
 ```
 
 #### The general cluster configuration options are available through [values.yaml](./charts/values.yaml).
